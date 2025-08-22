@@ -8,7 +8,7 @@ const TestRunner = ({ code, language, onClose }) => {
   const ws = useRef(null);
 
   useEffect(() => {
-    ws.current = new WebSocket('ws://localhost:3001');
+    ws.current = new WebSocket('wss://web-automation-studio.onrender.com');
 
     ws.current.onopen = () => {
       setStatus('running');
