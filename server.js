@@ -9,7 +9,13 @@ wss.on('connection', (ws) => {
   ws.on('message', (message) => {
     const { code, language } = JSON.parse(message);
     const fileExtension = language === 'python' ? 'py' : 'js';
-    const filePath = path.join('testing', `test_run.${fileExtension}`);
+    const dirPath = 'testing';
+    const filePath = path.join(dirPath, `test_run.${fileExtension}`);
+
+    // Create the testing directory if it doesn't exist
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath);
+    }
 
     fs.writeFileSync(filePath, code);
 
