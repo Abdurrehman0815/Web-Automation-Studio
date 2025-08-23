@@ -43,9 +43,9 @@ class AutomationRunner {
     console.log('🚀 Starting automation...');
     
     this.browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       defaultViewport: { width: 1920, height: 1080 },
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
     });
 
     this.page = await this.browser.newPage();
