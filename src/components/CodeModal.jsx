@@ -44,7 +44,6 @@ class AutomationRunner {
     
     this.browser = await puppeteer.launch({
       headless: true,
-      executablePath: '/opt/render/.cache/puppeteer/chrome/linux-125.0.6422.60/chrome-linux64/chrome',
       defaultViewport: { width: 1920, height: 1080 },
       args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
     });
