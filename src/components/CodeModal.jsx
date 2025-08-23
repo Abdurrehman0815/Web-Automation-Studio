@@ -44,6 +44,7 @@ class AutomationRunner {
     
     this.browser = await puppeteer.launch({
       headless: true,
+      executablePath: '/opt/render/.cache/puppeteer/chrome/linux-125.0.6422.60/chrome-linux64/chrome',
       defaultViewport: { width: 1920, height: 1080 },
       args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
     });
@@ -165,6 +166,7 @@ class AutomationRunner:
         chrome_options = Options()
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
+        chrome_options.add_argument('--headless')
         
         prefs = {
             "download.default_directory": os.path.abspath('./downloads'),
